@@ -1,8 +1,11 @@
 const notas = [
-    {matematica: 8},
-    {historia: 6},
-    {portugues: 4}
+    {nota: 8},
+    {nota: 6},
+    {nota: 4}
 ]
 
-const mediaNotas = notas.reduce((total, usuario) => total + usuario.idade, 0)
-console.log(`Soma das Idades: ${somaIdades}`)
+const somaNotas = notas.reduce((total, somaNota) => total + somaNota.nota, 0)
+console.log(`Soma das Notas: ${somaNotas}`)
+
+media = somaNotas / 3
+console.log(`Média: ${media}`)
