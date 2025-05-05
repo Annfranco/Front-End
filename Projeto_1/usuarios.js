@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', carregarUsuarios)
 
-const carregarUsuarios = () => {
+function carregarUsuarios() {
     fetch('http://localhost:8080/usuarios')
     .then(response => {
         if (!response.ok) {
@@ -12,7 +12,7 @@ const carregarUsuarios = () => {
         const lista = document.getElementById('listaUsuarios')
         lista.innerHTML = ''
 
-        if (usuarios.length === 0) {
+        if (usuarios.lenght === 0) {
             lista.innerHTML = '<li>Nenhum usuário encontrado. </li>'
             return;
         }
@@ -25,7 +25,7 @@ const carregarUsuarios = () => {
         })
     })
     .catch( erro => {
-        document.getElementById('listaUsuarios').innerHTML =
+        document.getElementById('listaUsuarios').innerHTML = 
         '<li>Erro ao carregar usuários.</li>'
     })
 }
