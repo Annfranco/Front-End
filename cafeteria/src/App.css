@@ -1,0 +1,41 @@
+.App {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: #e4cbcb;
+  min-height: 100vh;
+}
+
+.App h1 {
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: -100px;
+}
+
+.App hr {
+  border: 1px solid #ddd;
+  margin: 20px 0;
+  width: 80%;
+}
+
+.image-one {
+  width: 250px;
+  margin-top: 20px;
+}
+
+.image-two {
+  width: 150px;
+  margin-top: -30px;
+  margin-bottom: -10px;
+  margin-right: 400px;
+}
+
+.image-three {
+  width: 150px;
+  margin-top: -120px;
+  margin-bottom: -10px;
+  margin-left: 400px;
+}
