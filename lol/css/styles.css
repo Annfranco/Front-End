@@ -1,0 +1,21 @@
+@font-face {
+    font-family: lol;
+    src: url('/images/DiaryBook.otf');
+}
+
+
+body{
+    background: url('/images/team_graves_8.jpg');
+    background-size: cover; /*se ajusta ao tamanho do aparelho*/
+    background-repeat: no-repeat; /*pra imagem não repetir*/
+    height: 100vh; /*altura do navegador todo*/
+}
+
+h1{
+    font-size: 90px;
+    text-align: center;
+    color: white;
+    font-family: lol;
+    font-weight: none; 
+}
+
