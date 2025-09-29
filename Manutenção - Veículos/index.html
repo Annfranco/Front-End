@@ -1,0 +1,132 @@
+<html><head><base href="/" />
+<meta charset="UTF-8">
+<title>Sistema de Login - Cadastro e Recuperação</title>
+<link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+<!-- Login Page -->
+<div class="container" id="loginPage">
+  <h1>Bem-vindo</h1>
+  <p class="subtitle">Faça login para continuar</p>
+  
+  <form id="loginForm">
+    <div class="form-group">
+      <input type="email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="Senha" required>
+    </div>
+    <button type="submit" id="entrar">Entrar</button>
+  </form>
+  
+  <div class="links">
+    <a href="javascript:void(0)" onclick="showPage('forgotPasswordPage')">Esqueceu sua senha?</a>
+    <a href="javascript:void(0)" onclick="showPage('registerPage')">Cadastre-se</a>
+  </div>
+</div>
+
+<!-- Forgot Password Page -->
+<div class="container" id="forgotPasswordPage" style="display: none;">
+  <h1>Recuperar Senha</h1>
+  <p class="subtitle">Informe seu email para receber as instruções de recuperação</p>
+  
+  <form id="forgotPasswordForm">
+    <div class="form-group">
+      <input type="email" id="recoveryEmail" placeholder="Digite seu email" required>
+      <div class="error-message" id="recoveryEmailError">Email inválido</div>
+    </div>
+    
+    <button type="submit">Enviar instruções</button>
+    <div class="success-message" id="recoverySuccess">
+      Email de recuperação enviado com sucesso!
+    </div>
+  </form>
+  
+  <div class="links">
+    <a href="javascript:void(0)" onclick="showPage('loginPage')">Voltar ao login</a>
+  </div>
+</div>
+
+<!-- Register Page -->
+<div class="container" id="registerPage" style="display: none;">
+  <h1>Cadastre-se</h1>
+  <p class="subtitle">Preencha os dados para criar sua conta</p>
+  
+  <form id="registerForm">
+    <div class="form-group">
+      <input type="text" id="fullName" placeholder="Nome completo" required>
+      <div class="error-message" id="nameError">Nome deve ter ao menos 3 caracteres</div>
+    </div>
+    
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Email" required>
+      <div class="error-message" id="emailError">Email inválido</div>
+    </div>
+    
+    <div class="form-group">
+      <input type="password" id="password" placeholder="Senha" required>
+      <div class="password-requirements">
+        <ul>
+          <li id="lengthCheck">Mínimo de 8 caracteres</li>
+          <li id="upperCheck">Uma letra maiúscula</li>
+          <li id="numberCheck">Um número</li>
+          <li id="specialCheck">Um caractere especial</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <input type="password" id="confirmPassword" placeholder="Confirme a senha" required>
+      <div class="error-message" id="passwordError">As senhas não coincidem</div>
+    </div>
+    
+    <button type="submit">Criar conta</button>
+    <div class="success-message" id="registerSuccess">
+      Conta criada com sucesso!
+    </div>
+  </form>
+  
+  <div class="links">
+    <a href="javascript:void(0)" onclick="showPage('loginPage')">Já tem uma conta? Faça login</a>
+  </div>
+</div>
+
+<!-- home page  -->
+<div class="container" id="homePage">
+    <h1>Cadastre o Veículo</h1>
+
+    <form id="homeForm">
+        <div class="form-group">
+            <input type="text" id="marca" placeholder="Marca">
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="modelo" placeholder="Modelo">
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="ano-veiculo" placeholder="Ano do Veículo">
+        </div>
+
+        <!-- <button type="submit">Cadastrar</button> -->
+        <button type="submit" id="submitBtn">Cadastrar Veículo</button>
+        <div class="success-message" id="homeSuccess">Veículo </div>
+        </form>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+
+<script src="JS/script.js"></script>
+
+</body></html>
