@@ -21,7 +21,7 @@
   
   h1 {
     color: rgb(51, 51, 51);
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     font-size: 28px;
   }
   
@@ -53,21 +53,50 @@
   
   button {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     background: linear-gradient(90deg, #6441A5, #2a73ff);
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin: 20px 0;
+    margin: 10px 0;
     transition: opacity 0.2s;
   }
   
   button:hover {
     opacity: 0.9;
   }
-  
+
+  .btn-acao {
+    padding: 5px 10px;     
+    font-size: 12px;        
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    width: auto;         
+  }
+
+  .btn-acao.editar {
+    background: #2a73ff;
+    color: white;
+    border: none;
+  }
+
+  .btn-acao.editar:hover {
+    background: #1a5edb;
+  }
+
+  .btn-acao.excluir {
+    background: #ff4444;
+    color: white;
+    border: none;
+  }
+
+  .btn-acao.excluir:hover {
+    background: #cc0000;
+  }
+
   .links {
     margin-top: 20px;
     font-size: 14px;
@@ -116,6 +145,7 @@
   table {
       width: 100%;
       margin-top: 30px;
+      margin-bottom: 30px;
       border-collapse: collapse;
     }
 

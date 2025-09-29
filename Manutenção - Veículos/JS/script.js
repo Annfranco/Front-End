@@ -110,11 +110,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Impede o reload
-  showPage('homePage');   // Mostra a página home
+  event.preventDefault(); 
+  showPage('homePage');  
 });
 
-// Cadastro de veículos
+document.addEventListener('DOMContentLoaded', function () {
+  const inputPesquisa = document.getElementById('pesquisa');
+  if (inputPesquisa) {
+    inputPesquisa.addEventListener('keyup', function () {
+      const termo = this.value.toLowerCase();
+      const linhas = document.querySelectorAll('#tabela tbody tr');
+
+      linhas.forEach(linha => {
+        const textoLinha = linha.innerText.toLowerCase();
+        linha.style.display = textoLinha.includes(termo) ? '' : 'none';
+      });
+    });
+  }
+});
+
 let veiculos = [];
 
 document.getElementById('homeForm').addEventListener('submit', function(e) {
@@ -124,14 +138,19 @@ document.getElementById('homeForm').addEventListener('submit', function(e) {
   const ano = document.getElementById('ano-veiculo').value.trim();
 
   if (!marca || !modelo || !ano) {
-    alert('Preencha todos os campos!');
     return;
   }
 
-  veiculos.push({ marca, modelo, ano });
+  if (editIndex === null) {
+    veiculos.push({ marca, modelo, ano });
+  } else {
+    veiculos[editIndex] = { marca, modelo, ano };
+    editIndex = null;
+    document.getElementById('submitBtn').textContent = "Cadastrar Veículo"; 
+  }
+
   atualizarTabela();
 
-  // Limpa os campos
   document.getElementById('marca').value = '';
   document.getElementById('modelo').value = '';
   document.getElementById('ano-veiculo').value = '';
@@ -140,9 +159,43 @@ document.getElementById('homeForm').addEventListener('submit', function(e) {
 function atualizarTabela() {
   const tbody = document.querySelector('#tabela tbody');
   tbody.innerHTML = '';
-  veiculos.forEach(veiculo => {
+  veiculos.forEach((veiculo, index) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${veiculo.marca}</td><td>${veiculo.modelo}</td><td>${veiculo.ano}</td>`;
+    tr.innerHTML = `
+      <td>${veiculo.marca}</td>
+      <td>${veiculo.modelo}</td>
+      <td>${veiculo.ano}</td>
+      <td>
+        <button type="button" class="btn-acao editar" onclick="editarVeiculo(${index})">Editar</button>
+        <button type="button" class="btn-acao excluir" onclick="deletarVeiculo(${index})">Excluir</button>
+      </td>
+    `;
     tbody.appendChild(tr);
   });
 }
+
+let editIndex = null; 
+
+function editarVeiculo(index) {
+  const veiculo = veiculos[index];
+  document.getElementById('marca').value = veiculo.marca;
+  document.getElementById('modelo').value = veiculo.modelo;
+  document.getElementById('ano-veiculo').value = veiculo.ano;
+
+  editIndex = index;
+  document.getElementById('submitBtn').textContent = "Atualizar Veículo"; 
+
+  showPage('homePage');
+}
+
+function deletarVeiculo(index) {
+  if (confirm("Tem certeza que deseja excluir este veículo?")) {
+    veiculos.splice(index, 1); 
+    atualizarTabela();
+  }
+}
+
+
+
+
+
